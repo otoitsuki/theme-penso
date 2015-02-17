@@ -3,19 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>
-      {% if is_login %}Login
-      {% elif is_home %}{{ site.author }}
-      {% elif is_tag %}{{ tag }}
-      {% elif post %}{{ post.title }}
+      {% if post %}{{ post.title }} | {{ site.name }}
+      {% else %}{{ site.name }}
       {% endif %}
-      | {{ site.name }}
     </title>
 
     {{ header_meta }}
 
     <link href="{{ assets('css/style.css') }}" rel="stylesheet" />
 
-    {% if site.analytics %}
+<!--     {% if site.analytics %}
     <script>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '{{ site.analytics }}']);
@@ -26,7 +23,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
-    {% endif %}
+    {% endif %} -->
   </head>
   <body>
 
@@ -35,6 +32,17 @@
       {{ login_form }}
 
     {% else %}
+    
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WPXJ6M"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WPXJ6M');</script>
+    <!-- End Google Tag Manager -->
+    
     <div class="container-narrow">
 
         <header class="site-header">
